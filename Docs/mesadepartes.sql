@@ -1,0 +1,535 @@
+-- phpMyAdmin SQL Dump
+-- version 5.2.0
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 23-12-2022 a las 18:51:45
+-- Versión del servidor: 10.4.27-MariaDB
+-- Versión de PHP: 8.1.12
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `mesadepartes`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tm_detallepartes`
+--
+
+CREATE TABLE `tm_detallepartes` (
+  `partd_id` int(11) NOT NULL,
+  `part_id` int(11) NOT NULL,
+  `partd_obs` varchar(255) NOT NULL,
+  `partd_file` varchar(255) NOT NULL,
+  `fech_crea` date NOT NULL,
+  `est` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tm_detallepartes`
+--
+
+INSERT INTO `tm_detallepartes` (`partd_id`, `part_id`, `partd_obs`, `partd_file`, `fech_crea`, `est`) VALUES
+(52, 131, 'rtest', '621587769.pdf', '2020-07-30', 1),
+(53, 132, 'asdad', '1855405045.pdf', '2020-07-30', 1),
+(54, 134, 'asd', '438546530.pdf', '2020-07-30', 1),
+(55, 136, 'asdasd', '1451179890.pdf', '2020-07-30', 1),
+(56, 154, 'ESTOS SON LOS CURSOS', '1921355719.docx', '2022-12-21', 1),
+(57, 282, 'necesario para el tramite', '611042332.pdf', '2022-12-22', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tm_menu`
+--
+
+CREATE TABLE `tm_menu` (
+  `men_id` int(11) NOT NULL,
+  `men_ruta` varchar(150) NOT NULL,
+  `men_icon` varchar(50) NOT NULL,
+  `men_nom` varchar(150) NOT NULL,
+  `est` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tm_menu`
+--
+
+INSERT INTO `tm_menu` (`men_id`, `men_ruta`, `men_icon`, `men_nom`, `est`) VALUES
+(1, '../NuevoRegistro/', 'si si-compass', 'Nuevo Registro', 1),
+(2, '../ConsultarStatus/', 'si si-puzzle', 'Consultar Estado', 1),
+(4, 'tesdt', 'test', 'test', 0),
+(5, 'zzz', 'www', 'ccc', 0),
+(6, 'asd', 'asd', 'az', 0),
+(7, 'aa', 'aa', 'aa', 0),
+(8, 'vvxc', 'xcvxc', 'xcvxcv', 0),
+(9, 'asdasd', 'asdasd', 'asdasdasd', 0);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tm_partes`
+--
+
+CREATE TABLE `tm_partes` (
+  `part_id` int(11) NOT NULL,
+  `usu_id` int(11) NOT NULL,
+  `part_asun` varchar(250) DEFAULT NULL,
+  `part_desc` varchar(500) DEFAULT NULL,
+  `fech_crea` date DEFAULT NULL,
+  `fech_visto` date DEFAULT NULL,
+  `fech_resp` date DEFAULT NULL,
+  `est` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+
+--
+-- Volcado de datos para la tabla `tm_partes`
+--
+
+INSERT INTO `tm_partes` (`part_id`, `usu_id`, `part_asun`, `part_desc`, `fech_crea`, `fech_visto`, `fech_resp`, `est`) VALUES
+(131, 14, 'Test', 'Test', '2020-07-30', NULL, NULL, 1),
+(132, 14, 'Test', 'test', '2020-07-30', NULL, NULL, 1),
+(133, 14, NULL, NULL, '2020-07-30', NULL, NULL, 2),
+(134, 14, 'asd', 'asd', '2020-07-30', NULL, NULL, 1),
+(135, 14, NULL, NULL, '2020-07-30', NULL, NULL, 2),
+(136, 14, 'asd', 'asd', '2020-07-30', NULL, NULL, 1),
+(137, 14, NULL, NULL, '2020-07-30', NULL, NULL, 2),
+(138, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(139, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(140, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(141, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(142, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(143, 14, NULL, NULL, '2020-08-22', NULL, NULL, 2),
+(144, 14, NULL, NULL, '2020-08-25', NULL, NULL, 2),
+(145, 14, NULL, NULL, '2020-08-25', NULL, NULL, 2),
+(146, 14, NULL, NULL, '2020-08-25', NULL, NULL, 2),
+(147, 14, NULL, NULL, '2020-09-08', NULL, NULL, 2),
+(148, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(149, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(150, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(151, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(152, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(153, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(154, 15, 'convalidacion de cursos', 'requiero convalidar 5 cursos', '2022-12-21', NULL, NULL, 1),
+(155, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(156, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(157, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(158, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(159, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(160, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(161, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(162, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(163, 16, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(164, 16, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(165, 16, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(166, 16, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(167, 15, NULL, NULL, '2022-12-21', NULL, NULL, 2),
+(168, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(169, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(170, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(171, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(172, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(173, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(174, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(175, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(176, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(177, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(178, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(179, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(180, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(181, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(182, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(183, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(184, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(185, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(186, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(187, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(188, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(189, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(190, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(191, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(192, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(193, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(194, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(195, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(196, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(197, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(198, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(199, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(200, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(201, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(202, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(203, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(204, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(205, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(206, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(207, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(208, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(209, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(210, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(211, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(212, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(213, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(214, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(215, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(216, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(217, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(218, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(219, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(220, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(221, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(222, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(223, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(224, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(225, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(226, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(227, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(228, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(229, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(230, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(231, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(232, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(233, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(234, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(235, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(236, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(237, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(238, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(239, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(240, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(241, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(242, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(243, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(244, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(245, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(246, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(247, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(248, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(249, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(250, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(251, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(252, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(253, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(254, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(255, 17, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(256, 17, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(257, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(258, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(259, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(260, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(261, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(262, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(263, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(264, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(265, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(266, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(267, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(268, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(269, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(270, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(271, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(272, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(273, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(274, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(275, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(276, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(277, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(278, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(279, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(280, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(281, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(282, 15, 'albun', 'necesito apra hoy', '2022-12-22', NULL, NULL, 1),
+(283, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(284, 15, NULL, NULL, '2022-12-22', NULL, NULL, 2),
+(285, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(286, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(287, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(288, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(289, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(290, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(291, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(292, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(293, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(294, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(295, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(296, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(297, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(298, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(299, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(300, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(301, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(302, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(303, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(304, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(305, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(306, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(307, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(308, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(309, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(310, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(311, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(312, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(313, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(314, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(315, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(316, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(317, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(318, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(319, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(320, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(321, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(322, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(323, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(324, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(325, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(326, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(327, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(328, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(329, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(330, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(331, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(332, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(333, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(334, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(335, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(336, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(337, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(338, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(339, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(340, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(341, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(342, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(343, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(344, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(345, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(346, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(347, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(348, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(349, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(350, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(351, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(352, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(353, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(354, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(355, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(356, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(357, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(358, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(359, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(360, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(361, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(362, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(363, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(364, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(365, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(366, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(367, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(368, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(369, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(370, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(371, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(372, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(373, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(374, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(375, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(376, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(377, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(378, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(379, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(380, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(381, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(382, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(383, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(384, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(385, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(386, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(387, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(388, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(389, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(390, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(391, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(392, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(393, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(394, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(395, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(396, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(397, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(398, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(399, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(400, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(401, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(402, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(403, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(404, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(405, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(406, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(407, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(408, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(409, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(410, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(411, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(412, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(413, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(414, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(415, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(416, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(417, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(418, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(419, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(420, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(421, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(422, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(423, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(424, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(425, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(426, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(427, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(428, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(429, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(430, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(431, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(432, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(433, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(434, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(435, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(436, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(437, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(438, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(439, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(440, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(441, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(442, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(443, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(444, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(445, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(446, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(447, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(448, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(449, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(450, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(451, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(452, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(453, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(454, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(455, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(456, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(457, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(458, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(459, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(460, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(461, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(462, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(463, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(464, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(465, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(466, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(467, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(468, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(469, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2),
+(470, 15, NULL, NULL, '2022-12-23', NULL, NULL, 2);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `tm_usuario`
+--
+
+CREATE TABLE `tm_usuario` (
+  `usu_id` int(11) NOT NULL,
+  `usu_nom` varchar(150) NOT NULL,
+  `usu_ape` varchar(150) NOT NULL,
+  `usu_correo` varchar(150) NOT NULL,
+  `usu_pass` varchar(15) NOT NULL,
+  `fech_crea` date DEFAULT NULL,
+  `fech_modi` date DEFAULT NULL,
+  `fech_elim` date DEFAULT NULL,
+  `est` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci COMMENT='Tabla Usuario';
+
+--
+-- Volcado de datos para la tabla `tm_usuario`
+--
+
+INSERT INTO `tm_usuario` (`usu_id`, `usu_nom`, `usu_ape`, `usu_correo`, `usu_pass`, `fech_crea`, `fech_modi`, `fech_elim`, `est`) VALUES
+(14, 'Davis', 'Anderson', 'davis_anderson_87@hotmail.com', '123456', NULL, NULL, NULL, 1),
+(15, 'frank', 'choque pacheco', 'frank229300@gmail.com', '2293', NULL, NULL, NULL, 1),
+(16, 'alvaro', 'river huertas', 'frank003922@outlook.com', '2293', NULL, NULL, NULL, 1),
+(17, 'olenka', 'monteza', 'olen@gmail.com', '2222', NULL, NULL, NULL, 1),
+(18, 'oliver', 'quispe sañac', 'oliver@gmail.com', '4444', NULL, NULL, NULL, 1),
+(19, 'oliver', 'dasdas', 'dasdasd@gmail.com', '2222', NULL, NULL, NULL, 1),
+(20, 'dsadas', 'dasda', 'ffsdf@dsfsdgmail.com', '111', NULL, NULL, NULL, 1),
+(21, 'fransdasda', 'fdsfds', 'ffsdf@dsfrewrwsdgmail.com', '11', NULL, NULL, NULL, 1),
+(22, 'w', 'we', 'e@gmail.com', '1', NULL, NULL, NULL, 1),
+(23, 'f', 's', 'ddco@gmail.com', '1', NULL, NULL, NULL, 1);
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `tm_detallepartes`
+--
+ALTER TABLE `tm_detallepartes`
+  ADD PRIMARY KEY (`partd_id`);
+
+--
+-- Indices de la tabla `tm_menu`
+--
+ALTER TABLE `tm_menu`
+  ADD PRIMARY KEY (`men_id`);
+
+--
+-- Indices de la tabla `tm_partes`
+--
+ALTER TABLE `tm_partes`
+  ADD PRIMARY KEY (`part_id`);
+
+--
+-- Indices de la tabla `tm_usuario`
+--
+ALTER TABLE `tm_usuario`
+  ADD PRIMARY KEY (`usu_id`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `tm_detallepartes`
+--
+ALTER TABLE `tm_detallepartes`
+  MODIFY `partd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+
+--
+-- AUTO_INCREMENT de la tabla `tm_menu`
+--
+ALTER TABLE `tm_menu`
+  MODIFY `men_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `tm_partes`
+--
+ALTER TABLE `tm_partes`
+  MODIFY `part_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=471;
+
+--
+-- AUTO_INCREMENT de la tabla `tm_usuario`
+--
+ALTER TABLE `tm_usuario`
+  MODIFY `usu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
